@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'ObscureAll';
+    src: url('~fonts/obscure-all/obscure-all.eot');
+    src:  url('~fonts/obscure-all/obscure-all.woff2') format('woff2'),
+          url('~fonts/obscure-all/obscure-all.woff') format('woff'),
+          url('~fonts/obscure-all/obscure-all.ttf') format('truetype'),
+          url('~fonts/obscure-all/obscure-all.eot?#iefix') format('embedded-opentype'),
+          url('~fonts/obscure-all/obscure-all.svg#ObscureAll') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+
+.obscure-all-text,
+input.obscure-all-text {
+  &, & * {
+    font-family: 'ObscureAll' !important;
+  }
+}

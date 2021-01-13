@@ -1,0 +1,90 @@
+<container class="header">
+  <row>
+    <columns>
+      <h3 class="text-center mt">
+        Contact Request Received
+      </h3>
+    </columns>
+  </row>
+</container>
+
+<container class="body-border">
+  <spacer size="32"></spacer>
+  <row>
+    <columns>
+      <row>
+        <columns small="12" large="6">
+          Name:
+        </columns>
+        <columns small="12" large="6">
+          <%= @name %>
+        </columns>
+      </row>
+      <row>
+        <columns small="12" large="6">
+          Phone:
+        </columns>
+        <columns small="12" large="6">
+          <%= @phone.presence || "Not Given" %>
+        </columns>
+      </row>
+      <row>
+        <columns small="12" large="6">
+          Email:
+        </columns>
+        <columns small="12" large="6">
+          <%= @email %>
+        </columns>
+      </row>
+      <row>
+        <columns small="12" large="6">
+          Street:
+        </columns>
+        <columns small="12" large="6">
+          <%= @street %>
+        </columns>
+      </row>
+      <row>
+        <columns small="12" large="6">
+          City:
+        </columns>
+        <columns small="12" large="6">
+          <%= @city %>
+        </columns>
+      </row>
+      <row>
+        <columns small="12" large="6">
+          Zip:
+        </columns>
+        <columns small="12" large="6">
+          <%= @zip %>
+        </columns>
+      </row>
+      <row>
+        <columns small="12" large="6">
+          Estimated Electric Bill:
+        </columns>
+        <columns small="12" large="6">
+          <%= @estimated_electric_bill %>
+        </columns>
+      </row>
+      <row>
+        <columns small="12" large="6">
+          Estimated Credit Score:
+        </columns>
+        <columns small="12" large="6">
+          <%= @estimated_credit_score %>
+        </columns>
+      </row>
+      <row>
+        <columns>
+          Additional Details:
+          <pre><%= @message %></pre>
+        </columns>
+      </row>
+      <spacer size="16"></spacer>
+      <%= render partial: 'shared/email_footer' %>
+    </columns>
+  </row>
+  <spacer size="32"></spacer>
+</container>

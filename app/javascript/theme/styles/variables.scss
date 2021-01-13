@@ -1,0 +1,77 @@
+/* Build a Material theme */
+// To begin customizing your theme, modify these variables. By default each theme starts off with our baseline values, so you can easily swap them out.
+
+
+/*  Typography */
+// To change your theme's typography, we recommend importing a font from Google Fonts and setting the global font-family https://fonts.google.com
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+$header-font-family: unquote("Roboto, sans-serif");
+$font-family: unquote("Open Sans, sans-serif");
+
+$white: #ffffff;
+$almost-white: #fcfcfc;
+$blue: #005691;
+
+$primary: $blue;
+$on-primary: $white;
+$secondary: #c75b02;
+$on-secondary: $white;
+$error: #333333;
+$on-error: #ed8b8f;
+$field-error: #ed545a;
+$app-bar-primary: $white;
+$app-bar-on-primary: $blue;
+$form-field-label: rgb(0, 0, 0, 0.6);
+$form-field-text: rgb(0, 0, 0, 0.87);
+$form-field-background: #f5f5f5;
+$form-field-icon: rgb(0, 0, 0, 0.54);
+
+$select-colors: (
+  default: $primary,
+  focus: $primary
+);
+
+$breakpoints: (
+  largedesktop: 1200px,
+  desktop: 992px,
+  tablet: 768px,
+  largephone: 576px,
+  phone: 0px
+);
+
+$columns: (
+  largedesktop: 18,
+  desktop: 18,
+  tablet: 12,
+  largephone: 6,
+  phone: 6
+);
+
+$default-margin: (
+  largedesktop: 24px,
+  desktop: 24px,
+  tablet: 16px,
+  largephone: 16px,
+  phone: 16px
+);
+
+$default-gutter: (
+  largedesktop: 24px,
+  desktop: 24px,
+  tablet: 16px,
+  largephone: 16px,
+  phone: 16px
+);
+
+$column-width: (
+  largedesktop: 72px,
+  desktop: 72px,
+  tablet: 72px,
+  largephone: 72px,
+  phone: 72px
+);
+
+$default-column-span: 6;
+
+$max-width: 1300px;

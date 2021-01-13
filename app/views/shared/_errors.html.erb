@@ -1,0 +1,15 @@
+<% if defined?(errors) && errors.present? %>
+  <div id="<%= local_assigns[:id].presence || "main_errors" %>" class="mdc-banner mdc-banner__error mdc-banner__no-action">
+    <div class="mdc-banner__content">
+      <div class="mdc-banner__graphic-text-wrapper">
+        <div class="mdc-banner__text">
+          <% errors.each do |error| %>
+            <p class="error-message">
+              <%= error %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

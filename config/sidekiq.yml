@@ -1,0 +1,17 @@
+---
+:concurrency: 7
+:pidfile: ./pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:queues:
+  - ordered
+  - low
+  - default
+  - important
+  - mailers
+:limits:
+  ordered:   1
+  low:       2
+  default:   4
+  important: 7
+  mailers:   3
+:daemon: false

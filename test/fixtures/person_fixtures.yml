@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+_fixture:
+  model_class: Person
+
+john:
+  first_names: John
+  last_names: Smith
+  email: john.smith@email.com
+  password_digest: <%= NaClPassword.generate("password") %>
+
+titled:
+  title: Mr
+  first_names: Poopy
+  last_names: Butthole
+  email: rick.and.morty@references.email
+  password_digest: <%= NaClPassword.generate("password") %>
+
+complete:
+  title: Mr
+  first_names: First Names
+  middle_names: Middle Names
+  last_names: Last Names
+  suffix: Jr
+  email: full.names@email.com
+  password_digest: <%= NaClPassword.generate("password") %>
+
+session:
+  first_names: Session
+  last_names: Tester
+  email: session@email.com
+  password_digest: <%= NaClPassword.generate("session.test") %>

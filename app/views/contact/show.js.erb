@@ -1,0 +1,4 @@
+var form = document.getElementById("contact_form");
+if(form) {
+  form.innerHTML = "<%= escape_javascript render partial: 'shared/contact_form' %>"
+}

@@ -1,0 +1,31 @@
+<container class="header">
+  <row>
+    <columns>
+      <h1 class="text-center mt">
+        <%= t(:title) %> | <%= t(:tagline) %>
+      </h1>
+      <h3 class="text-center mt">
+        Your Request Has Been Received
+      </h3>
+    </columns>
+  </row>
+</container>
+
+<container class="body-border">
+  <spacer size="32"></spacer>
+  <row>
+    <columns>
+      <p>
+        Hi <%= @name %>!
+      </p>
+      <p>
+        Your request has been received and we will be in contact with you shortly. Thank you for your interest, and have a great day!
+      </p>
+      <p>
+        Cheers,
+      </p>
+      <%= render partial: 'shared/email_footer' %>
+    </columns>
+  </row>
+  <spacer size="32"></spacer>
+</container>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render partial: "layouts/analytics" %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="turbolinks-cache-control" content="no-cache">
+    <!-- page title -->
+    <title>
+      <% @title = (yield :title).presence || @title.presence %>
+      <%= (@title ? "#{@title} | #{t(:title)}" : t(:title)) %>
+    </title>
+    <!-- favicons -->
+    <meta name="msapplication-TileColor" content="#005691">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Protect from Forgery -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- import Material Icons from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Or with "Outlined" Icon Options: -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <% js_packs = [ "application", "styles" ] | ((yield :js_packs).presence || []).map(&:to_s) %>
+    <% js_packs.each do |js_pack| %>
+      <%= stylesheet_pack_tag js_pack, media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+    <%= javascript_packs_with_chunks_tag *js_packs, 'data-turbolinks-track': 'reload', defer: true %>
+  </head>
+  <body class="mdc-typography with-background-image home-background" >
+    <!-- Side-Panel Hideable Navigation -->
+    <!-- <#%= render partial: "layouts/app_drawer" %> -->
+    <section class="mdc-drawer-app-content translucent">
+      <!-- Top-Fixed Navigation -->
+      <%= render partial: "layouts/top_bar" %>
+      <div class="main-content mdc-top-app-bar--fixed-adjust">
+        <div class="hero">
+          <h1>
+            <%= t(:tagline) %>
+          </h1>
+        </div>
+        <!-- Allow Full-Page-Width or Custom-Grid Layouts -->
+        <%= yield(:outside_grid) %>
+        <!-- Full-Screen-Height Scrollable Default Grid -->
+        <% unless CoerceBoolean.from(yield(:no_main_grid).presence) %>
+          <div class="main-grid mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+              <%= cell_tag(:main, base: 18, align: @grid_align) do %>
+                <%= yield %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </body>
+</html>

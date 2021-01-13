@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+_fixture:
+  model_class: Country
+
+one:
+  alpha_2: "ON"
+  alpha_3: "ONE"
+  numeric: "000"
+  short: "One Place"
+  name: "One Place Non-Existing"
+
+# structure_test:
+#   alpha_2: "ZZ"
+#   alpha_3: "ZZZ"
+#   numeric: "999"
+#   short: "Structure Test"
+#   name: "Address Structure Testing"

@@ -1,0 +1,23 @@
+<row>
+  <columns>
+    <table class="table signature">
+      <thead>
+        <tr>
+          <th colspan="2">
+            <%= t(:title) %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>
+            Email:
+          </th>
+          <td>
+            <a href="mailto:mail@solarenergypros.online">info@solarenergypros.online</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </columns>
+</row>

@@ -1,0 +1,37 @@
+<%= form_with url: contact_path, id: "unsubscribe_form", class: "w-100" do |form| %>
+  <div class="mdc-layout-grid__inner">
+    <% if @success %>
+      <%= cell_tag base: 18, class: "mb-2" do %>
+        <%= render partial: "shared/success", locals: { message: "You have been unsubscribed." } %>
+      <% end %>
+    <% elsif defined?(@errors) && @errors.present? %>
+      <%= cell_tag base: 18, class: "mb-2" do %>
+        <%= render partial: "shared/errors", locals: { errors: @errors } %>
+      <% end %>
+    <% end %>
+    <%= cell_tag base: 9, tablet: 6 do %>
+      <!-- Render textfield component -->
+      <div class="mdc-text-field mdc-text-field--filled mdc-text-field--with-trailing-icon" data-controller="text-field">
+        <%=
+          form.text_field :email,
+            type: "email",
+            class: "mdc-text-field__input",
+            required: true,
+            pattern: EmailValidator::EMAIL_REGEX.source,
+            data: { target: "text-field.input" }
+        %>
+        <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing clickable" data-target="text-field.icon">
+          email
+        </i>
+        <%= form.label :email, class: "mdc-floating-label", data: { target: "text-field.label" } %>
+        <div class="mdc-line-ripple"></div>
+      </div>
+    <% end %>
+    <%= cell_tag base: 9, tablet: 6 do %>
+      <button class="mdc-button mdc-button--unelevated mdc-button--secondary w-100" type="submit">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">Submit</span>
+      </button>
+    <% end %>
+  </div>
+<% end %>

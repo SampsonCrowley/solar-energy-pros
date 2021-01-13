@@ -1,0 +1,40 @@
+<header
+  id="top-bar"
+  class="mdc-top-app-bar mdc-top-app-bar--fixed"
+  data-controller="top-bar"
+>
+  <div class="mdc-top-app-bar__row mdc-top-app-bar__row-no-shadow">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start h-100 flex-grow above-phone-only">
+      <%= link_to "/", class: "h-100" do %>
+        <%= image_pack_tag "logo.webp", alt: t(:title), class: "img" %>
+      <% end %>
+    </section>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+      <span class="mdc-top-app-bar__title pr-0-force" data-target="top-bar.title">
+        <%= @title.presence || t(:title) %>
+      </span>
+      <!-- <button
+        id="drawer-toggle-button"
+        class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button edge-even"
+        data-target="top-bar.nav-button"
+        data-action="app-drawer#toggle"
+      >
+        menu
+      </button> -->
+    </section>
+  </div>
+  <div class="mdc-top-app-bar__under-bar">
+    <div class="mdc-top-app-bar__under-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end h-100 flex-grow">
+        <%=
+          link_to "https://www.facebook.com/Solar-Energy-Pros-Pros-de-la-Energ%C3%ADa-Solar-100193345393643",
+                  class: "h-100",
+                  target: "_facebook",
+                  rel: "noopener noreferrer" do
+        %>
+          <%= image_pack_tag "facebook/white-58.png", alt: "Facebook", class: "img" %>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</header>

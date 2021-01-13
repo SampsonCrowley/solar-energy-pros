@@ -1,0 +1,86 @@
+<% if Current.session %>
+<div class="mdc-list">
+  <a
+    class="mdc-list-item"
+    href="/payment"
+    data-target="app-drawer.link"
+    data-action="app-drawer#close"
+  >
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">card_giftcard</i>
+    <span class="mdc-list-item__text">My Orders</span>
+  </a>
+  <a
+    class="mdc-list-item"
+    href="/items"
+    data-target="app-drawer.link"
+    data-action="app-drawer#close"
+  >
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assessment</i>
+    <span class="mdc-list-item__text">Items</span>
+  </a>
+  <a
+    class="mdc-list-item"
+    href="/data"
+    data-target="app-drawer.link"
+    data-action="app-drawer#close"
+  >
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assessment</i>
+    <span class="mdc-list-item__text">Data</span>
+  </a>
+  <hr class="mdc-list-divider">
+  <%= link_to(session_path, method: :delete, class: "mdc-list-item") do %>
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">exit_to_app</i>
+    <span class="mdc-list-item__text">Logout</span>
+  <% end %>
+</div>
+<% else %>
+<div class="mdc-list">
+  <a
+    class="mdc-list-item"
+    href="<%= new_session_path %>" data-controller="navigation"
+    data-target="navigation.link"
+    data-action="navigation#login"
+  >
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">login</i>
+    <span class="mdc-list-item__text">Log In</span>
+  </a>
+  <a
+    class="mdc-list-item"
+    href="/payment"
+    data-target="app-drawer.link"
+    data-action="app-drawer#close"
+  >
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">card_giftcard</i>
+    <span class="mdc-list-item__text">Donate</span>
+  </a>
+  <hr class="mdc-list-divider">
+  <h6 class="mdc-list-group__subheader">Our Company</h6>
+  <a
+    class="mdc-list-item"
+    href="<%= root_url %>"
+    data-target="app-drawer.link"
+    data-action="app-drawer#close"
+  >
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">group</i>
+    <span class="mdc-list-item__text">About Us</span>
+  </a>
+  <a
+    class="mdc-list-item"
+    href="/faq"
+    data-target="app-drawer.link"
+    data-action="app-drawer#close"
+  >
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">ballot</i>
+    <span class="mdc-list-item__text">F.A.Q.</span>
+  </a>
+  <a
+    class="mdc-list-item"
+    href="/contact"
+    data-target="app-drawer.link"
+    data-action="app-drawer#close"
+  >
+    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">contact_support</i>
+    <span class="mdc-list-item__text">Contact Us</span>
+  </a>
+</div>
+<% end %>

@@ -1,0 +1,6 @@
+{
+  "name": "SelectMenuController",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./select-menu-controller.js"
+}

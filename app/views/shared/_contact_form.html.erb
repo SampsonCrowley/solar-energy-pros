@@ -1,0 +1,195 @@
+<%= form_with url: contact_path, scope: :contact, id: "contact_form", class: "w-100" do |form| %>
+  <div class="mdc-layout-grid__inner">
+    <% if @success %>
+      <%= cell_tag base: 18, class: "mb-2" do %>
+        <%= render partial: "shared/success", locals: { message: "Your request has been sent!" } %>
+      <% end %>
+    <% elsif defined?(@errors) && @errors.present? %>
+      <%= cell_tag base: 18, class: "mb-2" do %>
+        <%= render partial: "shared/errors", locals: { errors: @errors } %>
+      <% end %>
+    <% end %>
+    <%= cell_tag base: 9, tablet: 6 do %>
+      <!-- Render textfield component -->
+      <div class="mdc-text-field mdc-text-field--filled mdc-text-field--with-trailing-icon" data-controller="text-field">
+        <%= form.text_field :name,
+          type: "text",
+          class: "mdc-text-field__input",
+          required: true,
+          autocomplete: "name",
+          data: { target: "text-field.input" }
+        %>
+        <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing clickable" data-target="text-field.icon">
+          face
+        </i>
+        <%=
+          form.label :name, t("contact.name.label"),
+            class: "mdc-floating-label",
+            data: { target: "text-field.label" }
+        %>
+        <div class="mdc-line-ripple"></div>
+      </div>
+    <% end %>
+    <%= cell_tag base: 9, tablet: 6 do %>
+      <!-- Render textfield component -->
+      <div class="mdc-text-field mdc-text-field--filled mdc-text-field--with-trailing-icon" data-controller="text-field">
+        <%=
+          form.text_field :phone,
+            type: "text",
+            class: "mdc-text-field__input",
+            autocomplete: "tel",
+            data: { target: "text-field.input" }
+        %>
+        <!-- require either phone or email -->
+        <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing clickable" data-target="text-field.icon">
+          phone
+        </i>
+        <%=
+          form.label :phone, t("contact.phone.label"),
+            class: "mdc-floating-label",
+            data: { target: "text-field.label" }
+        %>
+        <div class="mdc-line-ripple"></div>
+      </div>
+    <% end %>
+    <%= cell_tag base: 18 do %>
+      <!-- Render textfield component -->
+      <div class="mdc-text-field mdc-text-field--filled mdc-text-field--with-trailing-icon" data-controller="text-field">
+        <%=
+          form.text_field :email,
+            type: "email",
+            class: "mdc-text-field__input",
+            required: true,
+            pattern: EmailValidator::EMAIL_REGEX.source,
+            autocomplete: "email",
+            data: { target: "text-field.input" }
+        %>
+        <!-- require either phone or email -->
+        <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing clickable" data-target="text-field.icon">
+          email
+        </i>
+        <%=
+          form.label :email, t("contact.email.label"),
+            class: "mdc-floating-label",
+            data: { target: "text-field.label" }
+        %>
+        <div class="mdc-line-ripple"></div>
+      </div>
+    <% end %>
+    <%= cell_tag base: 18 do %>
+      <!-- Render textfield component -->
+      <div class="mdc-text-field mdc-text-field--filled mdc-text-field--with-trailing-icon" data-controller="text-field">
+        <%=
+          form.text_field :street,
+            type: "text",
+            class: "mdc-text-field__input",
+            required: true,
+            autocomplete: "street-address",
+            data: { target: "text-field.input" }
+        %>
+        <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing clickable" data-target="text-field.icon">
+          directions_car
+        </i>
+        <%=
+          form.label :street, t("contact.street.label"),
+            class: "mdc-floating-label",
+            data: { target: "text-field.label" }
+        %>
+        <div class="mdc-line-ripple"></div>
+      </div>
+    <% end %>
+    <%= cell_tag base: 9, tablet: 6 do %>
+      <!-- Render textfield component -->
+      <div class="mdc-text-field mdc-text-field--filled" data-controller="text-field">
+        <%=
+          form.text_field :city,
+            type: "text",
+            class: "mdc-text-field__input",
+            required: true,
+            autocomplete: "address-level2",
+            data: { target: "text-field.input" }
+        %>
+        <%=
+          form.label :city, t("contact.city.label"),
+            class: "mdc-floating-label",
+            data: { target: "text-field.label" }
+        %>
+        <div class="mdc-line-ripple"></div>
+      </div>
+    <% end %>
+    <%= cell_tag base: 9, tablet: 6 do %>
+      <!-- Render textfield component -->
+      <div class="mdc-text-field mdc-text-field--filled" data-controller="text-field">
+        <%=
+          form.text_field :zip,
+            type: "text",
+            class: "mdc-text-field__input",
+            inputmode: "numeric",
+            required: true,
+            pattern: ZipValidator::ZIP_REGEX.source,
+            autocomplete: "postal-code",
+            data: { target: "text-field.input" }
+        %>
+        <%=
+          form.label :zip, t("contact.zip.label"),
+            class: "mdc-floating-label",
+            data: { target: "text-field.label" }
+        %>
+        <div class="mdc-line-ripple"></div>
+      </div>
+    <% end %>
+    <%= cell_tag base: 9, tablet: 6 do %>
+      <!-- Render select menu component -->
+      <%=
+        select_menu_field :estimated_electric_bill,
+          t("contact.estimated_electric_bill.label"),
+          [
+            { value: "50-100", label: "$51-$100" },
+            { value: "101-150", label: "$101-$150" },
+            { value: "151-200", label: "$151-$200" },
+            { value: "200+", label: "$200+" }
+          ],
+          required: true,
+          prefix: :contact
+      %>
+    <% end %>
+    <%= cell_tag base: 9, tablet: 6 do %>
+      <!-- Render select menu component -->
+      <%=
+        select_menu_field :estimated_credit_score,
+          t("contact.estimated_credit_score.label"),
+          [
+            { value: "0-549" },
+            { value: "550-599" },
+            { value: "600-649" },
+            { value: "650-699" },
+            { value: "700+" },
+          ],
+          required: true,
+          prefix: :contact
+      %>
+    <% end %>
+    <%= cell_tag base: 18 do %>
+      <!-- Render textfield component -->
+      <div class="mdc-text-field mdc-text-field--filled mdc-text-field--textarea mdc-text-field--multiline" data-controller="text-field">
+        <%=
+          form.text_area :message,
+            class: "mdc-text-field__input",
+            rows: 5,
+            data: { target: "text-field.input" }
+        %>
+        <%=
+          form.label :message, t("contact.message.label"),
+            class: "mdc-floating-label",
+            data: { target: "text-field.label" }
+        %>
+      </div>
+    <% end %>
+    <%= cell_tag base: 18 do %>
+      <button class="mdc-button mdc-button--unelevated mdc-button--secondary w-100" type="submit">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">Submit</span>
+      </button>
+    <% end %>
+  </div>
+<% end %>

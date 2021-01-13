@@ -1,0 +1,8 @@
+<% if @not_found.present? %>
+<div class="mdc-layout-grid__inner mt-4">
+  <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-18 mb-4">
+    <%= render partial: "shared/errors", locals: { errors: [ "Requested Page Not Found" ] }, id: "not_found_error" %>
+  </div>
+</div>
+<% end %>
+<%= render partial: "contact" %>

@@ -1,0 +1,28 @@
+es:
+  title: "Pros de la Energía Solar"
+  tagline: "Vaya Solar. Empezar a Ahorrar."
+  required_field: "es un campo obligatorio, por favor proporcione antes de enviar"
+  contact:
+    name:
+      label: "Nombre"
+    phone:
+      label: "Teléfono"
+    email:
+      label: "Correo Electrónico"
+      invalid: "Formato de correo inválido; proporcione un correo electrónico válido"
+    street:
+      label: "Dirección"
+    city:
+      label: "Ciudad"
+    zip:
+      label: "Código Postal"
+      invalid: "Formato de código postal no válido; proporcione un código postal válido"
+    estimated_electric_bill:
+      label: "Factura de Electricidad Mensual Estimada"
+    estimated_credit_score:
+      label: "Puntaje de Crédito Estimado"
+    message:
+      label: "¿Algo que le gustaría que supiéramos? (Opcional)"
+  error:
+    unknown: "Un error desconocido ocurrió"
+    login: "No se encontró la combinación de correo electrónico y contraseña"
