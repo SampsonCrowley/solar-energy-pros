@@ -12,6 +12,10 @@ class HomeController < ApplicationController
   def show
   end
 
+  def wake_up
+    return head 200
+  end
+
   def not_found
     @not_found = true
     return render :show

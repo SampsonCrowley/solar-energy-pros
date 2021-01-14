@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "home#detect_language"
+  get "/wake_up", to: "home#wake_up"
 
   scope "(:locale)", locale: /en|es/ do
     resource :session, only: %i[ new create destroy ]
