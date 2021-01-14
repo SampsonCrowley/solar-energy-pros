@@ -2,7 +2,7 @@
   <div class="mdc-layout-grid__inner">
     <% if @success %>
       <%= cell_tag base: 18, class: "mb-2" do %>
-        <%= render partial: "shared/success", locals: { message: "Your request has been sent!" } %>
+        <%= render partial: "shared/success", locals: { message: t("success_message") } %>
       <% end %>
     <% elsif defined?(@errors) && @errors.present? %>
       <%= cell_tag base: 18, class: "mb-2" do %>

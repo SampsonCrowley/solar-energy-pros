@@ -2,8 +2,11 @@
   <row>
     <columns>
       <h1 class="text-center mt">
-        <%= t(:title) %> | <%= t(:tagline) %>
+        <%= t(:title) %>
       </h1>
+      <h2 class="text-center mt">
+        <%= t(:tagline) %>
+      </h2>
       <h3 class="text-center mt">
         Your Request Has Been Received
       </h3>

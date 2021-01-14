@@ -33,6 +33,8 @@ en:
   title: "Solar Energy Pros"
   tagline: "Go Solar. Start Saving."
   required_field: "is a required field, please provide it before submitting"
+  request_message: "Request a Free Consultation"
+  success_message: "Your request has been sent!"
   contact:
     name:
       label: "Name"
