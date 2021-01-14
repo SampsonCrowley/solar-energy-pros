@@ -1,7 +1,7 @@
 es:
   title: "Pros de la Energía Solar"
-  tagline: "Vaya Solar. Empezar a Ahorrar."
-  required_field: "es un campo obligatorio, por favor proporcione antes de enviar"
+  tagline: "Cambiate a Solar. Empezar a Ahorrar."
+  required_field: "es una caja requerida, por favor proporcione antes de enviar"
   contact:
     name:
       label: "Nombre"
@@ -18,9 +18,9 @@ es:
       label: "Código Postal"
       invalid: "Formato de código postal no válido; proporcione un código postal válido"
     estimated_electric_bill:
-      label: "Factura de Electricidad Mensual Estimada"
+      label: "Estimado Recibo de Luz"
     estimated_credit_score:
-      label: "Puntaje de Crédito Estimado"
+      label: "Estimado de Crédito"
     message:
       label: "¿Algo que le gustaría que supiéramos? (Opcional)"
   error:
