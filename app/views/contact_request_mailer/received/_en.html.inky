@@ -1,0 +1,19 @@
+<row>
+  <h3 class="text-center mt">
+    Your Request Has Been Received
+  </h3>
+</row>
+<spacer size="16"></spacer>
+<row>
+  <columns>
+    <p>
+      Hello <%= @name %>!
+    </p>
+    <p>
+      Your request has been received and we will be in contact with you shortly. Thank you for your interest, and have a great day!
+    </p>
+    <p>
+      Cheers,
+    </p>
+  </columns>
+</row>

@@ -5,7 +5,7 @@ class ContactRequestMailer < ApplicationMailer
       @message = params[:message]
       @name = params[:name]
 
-      mail to: @email, subject: "Contact Request Received", skip_filter: true
+      mail to: @email, subject: t(:request_subject), skip_filter: true
     end
   end
 

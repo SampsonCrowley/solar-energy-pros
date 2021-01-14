@@ -14,6 +14,14 @@
     <columns>
       <row>
         <columns small="12" large="6">
+          Language:
+        </columns>
+        <columns small="12" large="6">
+          <%= t(:language) %>
+        </columns>
+      </row>
+      <row>
+        <columns small="12" large="6">
           Name:
         </columns>
         <columns small="12" large="6">

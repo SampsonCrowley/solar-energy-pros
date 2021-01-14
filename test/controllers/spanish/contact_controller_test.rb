@@ -23,8 +23,8 @@ module SpanishRoutes
         street: "Dirección",
         city: "Ciudad",
         zip: "Código Postal",
-        estimated_electric_bill: "Factura de Electricidad Mensual Estimada",
-        estimated_credit_score: "Puntaje de Crédito Estimado",
+        estimated_electric_bill: "Estimado Recibo de Luz",
+        estimated_credit_score: "Estimado de Crédito",
         message: "¿Algo que le gustaría que supiéramos? (Opcional)",
       }
     end
@@ -72,13 +72,13 @@ module SpanishRoutes
     test "should return an unprocessable error when empty" do
       post es_contact_url
       assert_response :unprocessable_entity
-      assert_renders_form errors: (%i[ name email street city zip estimated_electric_bill estimated_credit_score ].map {|attr| "#{labels[attr]} es un campo obligatorio, por favor proporcione antes de enviar"})
+      assert_renders_form errors: (%i[ name email street city zip estimated_electric_bill estimated_credit_score ].map {|attr| "#{labels[attr]} es una caja requerida, por favor proporcione antes de enviar"})
     end
 
     test "should return an unprocessable error when email empty" do
       post es_contact_url, params: { contact: valid_params.without(:email) }
       assert_response :unprocessable_entity
-      assert_renders_form errors: [ "Correo Electrónico es un campo obligatorio, por favor proporcione antes de enviar" ]
+      assert_renders_form errors: [ "Correo Electrónico es una caja requerida, por favor proporcione antes de enviar" ]
     end
 
     test "should return an unprocessable error when email invalid" do
@@ -90,7 +90,7 @@ module SpanishRoutes
     test "should return an unprocessable error when zip empty" do
       post es_contact_url, params: { contact: valid_params.without(:zip) }
       assert_response :unprocessable_entity
-      assert_renders_form errors: [ "Código Postal es un campo obligatorio, por favor proporcione antes de enviar" ]
+      assert_renders_form errors: [ "Código Postal es una caja requerida, por favor proporcione antes de enviar" ]
     end
 
     test "should return an unprocessable error when zip invalid" do
@@ -102,31 +102,31 @@ module SpanishRoutes
     test "should return an unprocessable error when name empty" do
       post es_contact_url, params: { contact: valid_params.without(:name) }
       assert_response :unprocessable_entity
-      assert_renders_form errors: [ "Nombre es un campo obligatorio, por favor proporcione antes de enviar" ]
+      assert_renders_form errors: [ "Nombre es una caja requerida, por favor proporcione antes de enviar" ]
     end
 
     test "should return an unprocessable error when street empty" do
       post es_contact_url, params: { contact: valid_params.without(:street) }
       assert_response :unprocessable_entity
-      assert_renders_form errors: [ "Dirección es un campo obligatorio, por favor proporcione antes de enviar" ]
+      assert_renders_form errors: [ "Dirección es una caja requerida, por favor proporcione antes de enviar" ]
     end
 
     test "should return an unprocessable error when city empty" do
       post es_contact_url, params: { contact: valid_params.without(:city) }
       assert_response :unprocessable_entity
-      assert_renders_form errors: [ "Ciudad es un campo obligatorio, por favor proporcione antes de enviar" ]
+      assert_renders_form errors: [ "Ciudad es una caja requerida, por favor proporcione antes de enviar" ]
     end
 
     test "should return an unprocessable error when estimated_electric_bill empty" do
       post es_contact_url, params: { contact: valid_params.without(:estimated_electric_bill) }
       assert_response :unprocessable_entity
-      assert_renders_form errors: [ "Factura de Electricidad Mensual Estimada es un campo obligatorio, por favor proporcione antes de enviar" ]
+      assert_renders_form errors: [ "Estimado Recibo de Luz es una caja requerida, por favor proporcione antes de enviar" ]
     end
 
     test "should return an unprocessable error when estimated_credit_score empty" do
       post es_contact_url, params: { contact: valid_params.without(:estimated_credit_score) }
       assert_response :unprocessable_entity
-      assert_renders_form errors: [ "Puntaje de Crédito Estimado es un campo obligatorio, por favor proporcione antes de enviar" ]
+      assert_renders_form errors: [ "Estimado de Crédito es una caja requerida, por favor proporcione antes de enviar" ]
     end
   end
 end

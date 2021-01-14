@@ -1,8 +1,10 @@
 es:
+  language: Español
   title: "Pros de la Energía Solar"
   tagline: "Cambiate a Solar. Empezar a Ahorrar."
   required_field: "es una caja requerida, por favor proporcione antes de enviar"
-  request_message: ""Solicite una Consulta Gratuita""
+  request_subject: "Solicitud Recibida"
+  request_message: "Solicite una Consulta Gratuita"
   success_message: "¡Tu solicitud ha sido enviada!"
   contact:
     name:

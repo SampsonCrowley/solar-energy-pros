@@ -30,9 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  language: English
   title: "Solar Energy Pros"
   tagline: "Go Solar. Start Saving."
   required_field: "is a required field, please provide it before submitting"
+  request_subject: "Request Received"
   request_message: "Request a Free Consultation"
   success_message: "Your request has been sent!"
   contact:
