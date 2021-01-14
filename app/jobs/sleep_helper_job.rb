@@ -22,7 +22,7 @@ class SleepHelperJob < ApplicationJob
 
       Rails.redis.set(:next_wake_up, next_wake_up)
 
-      SleepHelperJob.set(wait: next_wake_up).perform_later
+      SleepHelperJob.set(wait_until: next_wake_up).perform_later
     end
   end
 end
