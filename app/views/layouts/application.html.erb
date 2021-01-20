@@ -23,6 +23,15 @@
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"> -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <% if Rails.env.production? %>
+    <!--Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PDQPBNQ');</script>
+    <!-- End Google Tag Manager -->
+    <% end %>
     <% js_packs = [ "application", "styles" ] | ((yield :js_packs).presence || []).map(&:to_s) %>
     <% js_packs.each do |js_pack| %>
       <%= stylesheet_pack_tag js_pack, media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -30,6 +39,12 @@
     <%= javascript_packs_with_chunks_tag *js_packs, 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body class="mdc-typography with-background-image home-background" >
+    <% if Rails.env.production? %>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDQPBNQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <% end %>
     <!-- Side-Panel Hideable Navigation -->
     <!-- <#%= render partial: "layouts/app_drawer" %> -->
     <section class="mdc-drawer-app-content translucent">
