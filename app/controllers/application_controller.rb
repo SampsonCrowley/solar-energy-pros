@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   # == Actions ============================================================
 
   # == Cleanup ============================================================
+  skip_before_action :verify_authenticity_token
   around_action :switch_locale
-
 
   # == Utilities ==========================================================
   private
