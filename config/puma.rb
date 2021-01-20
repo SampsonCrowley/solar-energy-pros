@@ -36,3 +36,8 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+on_restart do
+  Sidekiq.redis.shutdown { |conn| conn.close }
+rescue
+end

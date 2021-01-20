@@ -61,7 +61,7 @@ module SolarEnergyPros
     config.action_mailer.asset_host = domain
 
     # queue settings
-    config.active_job.queue_name_prefix = "solar_energy_pros.#{Rails.env}"
+    config.active_job.queue_name_prefix = nil # don't use prefixes with sidekiq, otherwise it would be: "solar_energy_pros.#{Rails.env}"
     config.active_job.queue_name_delimiter = "."
     config.action_mailer.deliver_later_queue_name = :mailers # defaults to "mailers"
     config.active_storage.queues.analysis         = :default # defaults to "active_storage_analysis"
