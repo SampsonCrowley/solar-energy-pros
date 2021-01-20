@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "theme/styles/variables" as bennett-theme;
+@use "theme/styles/variables" as solar-theme;
 @use "components/grid/mixins" as grid-mixins;
 
 *, ::after, ::before {
@@ -11,18 +11,18 @@ body {
 
 
   .bg-primary {
-    background: bennett-theme.$primary;
-    color: bennett-theme.$on-primary;
+    background: solar-theme.$primary;
+    color: solar-theme.$on-primary;
   }
 
   .bg-secondary {
-    background: bennett-theme.$secondary;
-    color: bennett-theme.$on-secondary;
+    background: solar-theme.$secondary;
+    color: solar-theme.$on-secondary;
   }
 
   .bg-error {
-    background: bennett-theme.$error;
-    color: bennett-theme.$on-error;
+    background: solar-theme.$error;
+    color: solar-theme.$on-error;
   }
 
   .rounded {
@@ -91,8 +91,8 @@ body {
     font-weight: bold;
   }
 
-  background: bennett-theme.$almost-white;
-  color: bennett-theme.$primary;
+  background: solar-theme.$almost-white;
+  color: solar-theme.$primary;
 }
 
 .site-fab {
@@ -120,9 +120,9 @@ body {
       }
 
       & > .mdc-layout-grid__inner {
-        @each $size in map.keys(bennett-theme.$columns) {
+        @each $size in map.keys(solar-theme.$columns) {
           @include grid-mixins.media-query_($size) {
-            $margin: map.get(bennett-theme.$default-margin, $size) * 2;
+            $margin: map.get(solar-theme.$default-margin, $size) * 2;
             @debug $size;
             @debug $margin;
 
@@ -280,7 +280,7 @@ button,
 
 body {
   .dropzone {
-    background: bennett-theme.$form-field-background;
+    background: solar-theme.$form-field-background;
     position: relative;
     border-radius: .25rem;
     border: 0;
@@ -289,7 +289,7 @@ body {
     & i.material-icons {
       margin-left: 12px;
       margin-right: 12px;
-      color: bennett-theme.$form-field-icon;
+      color: solar-theme.$form-field-icon;
       position: absolute;
       transform-origin: left top;
       display: block;
@@ -300,7 +300,7 @@ body {
     }
 
     & label {
-      color: bennett-theme.$form-field-label;
+      color: solar-theme.$form-field-label;
 
       font-family: Open Sans, sans-serif;
       font-family: var(--mdc-typography-subtitle1-font-family, var(--mdc-typography-font-family, Open Sans, sans-serif));
@@ -342,7 +342,7 @@ body {
 
     & .dz-preview {
       &.dz-image-preview {
-        background: bennett-theme.$form-field-background;
+        background: solar-theme.$form-field-background;
         background: transparent;
       }
     }
@@ -383,11 +383,11 @@ body {
       padding: 0;
 
       & .dropzone-msg-title {
-        color: bennett-theme.$form-field-text;
+        color: solar-theme.$form-field-text;
       }
 
       & .dropzone-msg-desc {
-        color: bennett-theme.$form-field-label;
+        color: solar-theme.$form-field-label;
       }
     }
   }

@@ -20,7 +20,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module BennettCrowley
+module SolarEnergyPros
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
@@ -41,8 +41,8 @@ module BennettCrowley
     config.active_record.default_timezone = :utc
 
     # email settings
-    # domain = "https://www.solarenergypros.online"
-    domain = "https://powder-soles.herokuapp.com"
+    domain = "https://www.solarenergypros.online"
+    # domain = "https://powder-soles.herokuapp.com"
     config.action_mailer.smtp_settings = {
       :address        => Rails.application.credentials.dig(:mailer, :mailgun, :hostname),
       :port           => Rails.application.credentials.dig(:mailer, :mailgun, :port).to_s,
@@ -61,7 +61,7 @@ module BennettCrowley
     config.action_mailer.asset_host = domain
 
     # queue settings
-    config.active_job.queue_name_prefix = "bennett_crowley.#{Rails.env}"
+    config.active_job.queue_name_prefix = "solar_energy_pros.#{Rails.env}"
     config.active_job.queue_name_delimiter = "."
     config.action_mailer.deliver_later_queue_name = :mailers # defaults to "mailers"
     config.active_storage.queues.analysis         = :default # defaults to "active_storage_analysis"

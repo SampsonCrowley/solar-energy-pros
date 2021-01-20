@@ -1,6 +1,6 @@
-@use "theme/styles/variables" as bennett-theme;
+@use "theme/styles/variables" as solar-theme;
 @use "@material/button" as material-button;
 
 .mdc-button--secondary {
-  @include material-button.filled-accessible(bennett-theme.$secondary);
+  @include material-button.filled-accessible(solar-theme.$secondary);
 }

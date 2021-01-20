@@ -77,13 +77,13 @@ default: &default
 
 development:
   <<: *default
-  database: bennett_crowley_development
+  database: solar_energy_pros_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: bennett_crowley
+  #username: solar_energy_pros
 
   # The password associated with the postgres role (username).
   #password:
@@ -114,7 +114,7 @@ test:
   <% if ENV["DATABASE_URL"]&.[](0) %>
   url: <%= ENV["DATABASE_URL"] %>
   <% else %>
-  database: bennett_crowley_test
+  database: solar_energy_pros_test
   <% end %>
 
 # As with config/credentials.yml, you never want to store sensitive information,

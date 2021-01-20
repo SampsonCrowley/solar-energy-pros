@@ -1,45 +1,45 @@
 // Material Theming
-@use "theme/styles/variables" as bennett-theme;
+@use "theme/styles/variables" as solar-theme;
 
 // @use "@material/theme/variables" as theme-variables with (
 @use "@material/theme" with (
-  $primary: bennett-theme.$primary,
-  $on-primary: bennett-theme.$on-primary,
-  $secondary: bennett-theme.$secondary,
-  $on-secondary: bennett-theme.$on-secondary,
-  $error: bennett-theme.$error,
-  $on-error: bennett-theme.$on-error
+  $primary: solar-theme.$primary,
+  $on-primary: solar-theme.$on-primary,
+  $secondary: solar-theme.$secondary,
+  $on-secondary: solar-theme.$on-secondary,
+  $error: solar-theme.$error,
+  $on-error: solar-theme.$on-error
 );
 
 // @use "@material/typography/variables" as typography-variables with (
 @use "@material/typography" with (
   $styles-headline1: (
-    font-family: bennett-theme.$header-font-family
+    font-family: solar-theme.$header-font-family
   ),
   $styles-headline2: (
-    font-family: bennett-theme.$header-font-family
+    font-family: solar-theme.$header-font-family
   ),
   $styles-headline3: (
-    font-family: bennett-theme.$header-font-family
+    font-family: solar-theme.$header-font-family
   ),
   $styles-headline4: (
-    font-family: bennett-theme.$header-font-family
+    font-family: solar-theme.$header-font-family
   ),
   $styles-headline5: (
-    font-family: bennett-theme.$header-font-family
+    font-family: solar-theme.$header-font-family
   ),
   $styles-headline6: (
-    font-family: bennett-theme.$header-font-family
+    font-family: solar-theme.$header-font-family
   ),
-  $font-family: bennett-theme.$font-family
+  $font-family: solar-theme.$font-family
 );
 
 @use "@material/layout-grid" with (
-  $breakpoints: bennett-theme.$breakpoints,
-  $columns: bennett-theme.$columns,
-  $default-margin: bennett-theme.$default-margin,
-  $default-gutter: bennett-theme.$default-gutter,
-  $column-width: bennett-theme.$column-width
+  $breakpoints: solar-theme.$breakpoints,
+  $columns: solar-theme.$columns,
+  $default-margin: solar-theme.$default-margin,
+  $default-gutter: solar-theme.$default-gutter,
+  $column-width: solar-theme.$column-width
 );
 
 // Import framework components

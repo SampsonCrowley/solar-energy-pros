@@ -40,7 +40,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: bennett_crowley_test
+          POSTGRES_DB: solar_energy_pros_test
         # will assign a random free host port
         ports:
           - 5432/tcp
@@ -81,7 +81,7 @@ jobs:
         # If we were running the job on in a container this would be postgres and redis
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         REDIS_URL: redis://localhost:${{ job.services.redis.ports[6379] }}/1
-        DATABASE_URL: postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/bennett_crowley_test
+        DATABASE_URL: postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/solar_energy_pros_test
         RAILS_ENV: test
         RAILS_SKIP_SCHEMA_DUMP: true
       run: |
@@ -92,7 +92,7 @@ jobs:
       env:
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         REDIS_URL: redis://localhost:${{ job.services.redis.ports[6379] }}/1
-        DATABASE_URL: postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/bennett_crowley_test
+        DATABASE_URL: postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/solar_energy_pros_test
         RAILS_ENV: test
         RAILS_LOG_TO_STDOUT: true
       run: |

@@ -1,5 +1,5 @@
 // Material Theming
-@use "theme/styles/variables" as bennett-theme;
+@use "theme/styles/variables" as solar-theme;
 
 @import "foundation-emails";
 
@@ -54,7 +54,7 @@ html,
 }
 
 .body-border {
-  border-top: 8px solid bennett-theme.$primary;
+  border-top: 8px solid solar-theme.$primary;
 }
 
 .btn {

@@ -1,15 +1,15 @@
 @use "sass:map";
-@use "material/styles/variables" as bennett-theme;
+@use "material/styles/variables" as solar-theme;
 @use "@material/top-app-bar/mixins" as top-app-bar;
 @use "@material/top-app-bar/variables" as top-app-bar-variables;
 @use "@material/image-list";
 @use "material/styles/components/banner" with (
-  $error: bennett-theme.$error,
-  $on-error: bennett-theme.$on-error
+  $error: solar-theme.$error,
+  $on-error: solar-theme.$on-error
 );
 @use "material/styles/components/button";
 @use "material/styles/components/card" with (
-  $primary: bennett-theme.$primary
+  $primary: solar-theme.$primary
 );
 @use "material/styles/components/drawer";
 @use "material/styles/components/grid";
@@ -17,9 +17,9 @@
 @use "@material/theme/mixins" as mdc-mixins;
 
 .mdc-top-app-bar {
-  // @include top-app-bar.fill-color-accessible(bennett-theme.$app-bar-primary);
-  // @include top-app-bar.icon-ink-color(bennett-theme.$app-bar-on-primary);
-  // box-shadow: 0px 0.25rem 1rem bennett-theme.$app-bar-on-primary;
+  // @include top-app-bar.fill-color-accessible(solar-theme.$app-bar-primary);
+  // @include top-app-bar.icon-ink-color(solar-theme.$app-bar-on-primary);
+  // box-shadow: 0px 0.25rem 1rem solar-theme.$app-bar-on-primary;
   &__row {
     transition: height 200ms linear;
   }
@@ -33,14 +33,14 @@
   }
   @media (min-width: 1300px) {
     &__row {
-      max-width: bennett-theme.$max-width;
+      max-width: solar-theme.$max-width;
       margin: auto;
     }
   }
 
-  @each $size in map.keys(bennett-theme.$columns) {
+  @each $size in map.keys(solar-theme.$columns) {
     @include grid-mixins.media-query_($size) {
-      $padding: map.get(bennett-theme.$default-margin, $size);
+      $padding: map.get(solar-theme.$default-margin, $size);
 
       &__section {
         &--align-start {
@@ -63,11 +63,11 @@
       border-radius: .25rem;
       opacity: 0.5;
       background: transparent;
-      @include mdc-mixins.prop(border-color, bennett-theme.$app-bar-primary);
+      @include mdc-mixins.prop(border-color, solar-theme.$app-bar-primary);
     }
     &:hover {
       &::before {
-        @include mdc-mixins.prop(background-color, bennett-theme.$app-bar-primary);
+        @include mdc-mixins.prop(background-color, solar-theme.$app-bar-primary);
       }
     }
   }
@@ -76,17 +76,17 @@
 
   &--fixed {
     @media(max-width: 575px) {
-      @include top-app-bar.fill-color-accessible(bennett-theme.$app-bar-primary);
-      @include top-app-bar.icon-ink-color(bennett-theme.$app-bar-on-primary);
+      @include top-app-bar.fill-color-accessible(solar-theme.$app-bar-primary);
+      @include top-app-bar.icon-ink-color(solar-theme.$app-bar-on-primary);
       .mdc-top-app-bar {
         &__navigation-icon.edge-even {
           &::before {
-            @include mdc-mixins.prop(border-color, bennett-theme.$app-bar-on-primary);
+            @include mdc-mixins.prop(border-color, solar-theme.$app-bar-on-primary);
             background: transparent;
           }
           &:hover {
             &::before {
-              @include mdc-mixins.prop(background-color, bennett-theme.$app-bar-on-primary);
+              @include mdc-mixins.prop(background-color, solar-theme.$app-bar-on-primary);
             }
           }
         }
@@ -107,12 +107,12 @@
         width: 100vw;
         transition: top 200ms linear, box-shadow 200ms ease 200ms;
         box-shadow: #dcdcdc 0px 0px 0px;
-        @include top-app-bar.fill-color-accessible(bennett-theme.$app-bar-primary);
+        @include top-app-bar.fill-color-accessible(solar-theme.$app-bar-primary);
       }
 
       &-scrolled {
-        @include top-app-bar.fill-color-accessible(bennett-theme.$app-bar-primary);
-        @include top-app-bar.icon-ink-color(bennett-theme.$app-bar-on-primary);
+        @include top-app-bar.fill-color-accessible(solar-theme.$app-bar-primary);
+        @include top-app-bar.icon-ink-color(solar-theme.$app-bar-on-primary);
         background-color: transparent;
         .mdc-top-app-bar {
           &__row{
@@ -131,12 +131,12 @@
 
           &__navigation-icon.edge-even {
             &::before {
-              @include mdc-mixins.prop(border-color, bennett-theme.$app-bar-on-primary);
+              @include mdc-mixins.prop(border-color, solar-theme.$app-bar-on-primary);
               background: transparent;
             }
             &:hover {
               &::before {
-                @include mdc-mixins.prop(background-color, bennett-theme.$app-bar-on-primary);
+                @include mdc-mixins.prop(background-color, solar-theme.$app-bar-on-primary);
               }
             }
           }

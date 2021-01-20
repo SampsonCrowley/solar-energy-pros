@@ -1,21 +1,21 @@
 @use "sass:map";
-@use "theme/styles/variables" as bennett-theme;
+@use "theme/styles/variables" as solar-theme;
 @use "@material/top-app-bar/mixins" as top-app-bar;
 @use "@material/select/mixins" as select;
 @use "@material/top-app-bar/variables" as top-app-bar-variables;
 @use "@material/image-list";
 @use "material/styles/components/banner" with (
-  $error: bennett-theme.$error,
-  $on-error: bennett-theme.$on-error,
-  $success: bennett-theme.$primary,
-  $on-success: bennett-theme.$on-primary
+  $error: solar-theme.$error,
+  $on-error: solar-theme.$on-error,
+  $success: solar-theme.$primary,
+  $on-success: solar-theme.$on-primary
 );
 @use "material/styles/components/button";
 @use "material/styles/components/card" with (
-  $primary: bennett-theme.$primary,
-  $on-primary: bennett-theme.$on-primary,
-  $secondary: bennett-theme.$secondary,
-  $on-secondary: bennett-theme.$on-secondary
+  $primary: solar-theme.$primary,
+  $on-primary: solar-theme.$on-primary,
+  $secondary: solar-theme.$secondary,
+  $on-secondary: solar-theme.$on-secondary
 );
 @use "material/styles/components/drawer";
 @use "material/styles/components/grid";
@@ -23,9 +23,9 @@
 @use "@material/theme/mixins" as mdc-mixins;
 
 .mdc-top-app-bar {
-  // @include top-app-bar.fill-color-accessible(bennett-theme.$app-bar-primary);
-  // @include top-app-bar.icon-ink-color(bennett-theme.$app-bar-on-primary);
-  // box-shadow: 0px 0.25rem 1rem bennett-theme.$app-bar-on-primary;
+  // @include top-app-bar.fill-color-accessible(solar-theme.$app-bar-primary);
+  // @include top-app-bar.icon-ink-color(solar-theme.$app-bar-on-primary);
+  // box-shadow: 0px 0.25rem 1rem solar-theme.$app-bar-on-primary;
   &__row {
     transition: height 200ms linear;
   }
@@ -41,8 +41,8 @@
     height: top-app-bar-variables.$row-height / 2;
     transition: top 200ms linear;
     transition: height 200ms linear;
-    @include mdc-mixins.prop(background-color, bennett-theme.$secondary);
-    @include mdc-mixins.prop(color, bennett-theme.$on-secondary);
+    @include mdc-mixins.prop(background-color, solar-theme.$secondary);
+    @include mdc-mixins.prop(color, solar-theme.$on-secondary);
     &__row {
       display: flex;
       position: relative;
@@ -76,14 +76,14 @@
   }
   @media (min-width: 1300px) {
     &__row, &__under-bar &__under-bar__row {
-      max-width: bennett-theme.$max-width;
+      max-width: solar-theme.$max-width;
       margin: auto;
     }
   }
 
-  @each $size in map.keys(bennett-theme.$columns) {
+  @each $size in map.keys(solar-theme.$columns) {
     @include grid-mixins.media-query_($size) {
-      $padding: map.get(bennett-theme.$default-margin, $size);
+      $padding: map.get(solar-theme.$default-margin, $size);
 
       &__section {
         &--align-start {
@@ -106,11 +106,11 @@
       border-radius: .25rem;
       opacity: 0.5;
       background: transparent;
-      @include mdc-mixins.prop(border-color, bennett-theme.$app-bar-primary);
+      @include mdc-mixins.prop(border-color, solar-theme.$app-bar-primary);
     }
     &:hover {
       &::before {
-        @include mdc-mixins.prop(background-color, bennett-theme.$app-bar-primary);
+        @include mdc-mixins.prop(background-color, solar-theme.$app-bar-primary);
       }
     }
   }
@@ -118,19 +118,19 @@
 
 
   &--fixed {
-    background: bennett-theme.$app-bar-primary;
-    color: bennett-theme.$app-bar-on-primary;
-    @include top-app-bar.icon-ink-color(bennett-theme.$app-bar-on-primary);
+    background: solar-theme.$app-bar-primary;
+    color: solar-theme.$app-bar-on-primary;
+    @include top-app-bar.icon-ink-color(solar-theme.$app-bar-on-primary);
 
     .mdc-top-app-bar {
       &__navigation-icon.edge-even {
         &::before {
-          @include mdc-mixins.prop(border-color, bennett-theme.$app-bar-primary);
+          @include mdc-mixins.prop(border-color, solar-theme.$app-bar-primary);
           background: transparent;
         }
         &:hover {
           &::before {
-            @include mdc-mixins.prop(background-color, bennett-theme.$app-bar-primary);
+            @include mdc-mixins.prop(background-color, solar-theme.$app-bar-primary);
           }
         }
       }
@@ -141,8 +141,8 @@
     }
 
     @media(min-width: 576px) {
-      background: bennett-theme.$app-bar-primary;
-      color: bennett-theme.$app-bar-on-primary;
+      background: solar-theme.$app-bar-primary;
+      color: solar-theme.$app-bar-on-primary;
       .mdc-top-app-bar__row::before {
         content: '';
         display: block;
@@ -155,7 +155,7 @@
         width: 100vw;
         transition: top 200ms linear, box-shadow 200ms ease 200ms;
         box-shadow: #dcdcdc 0px 0px 0px;
-        @include top-app-bar.fill-color-accessible(bennett-theme.$app-bar-primary);
+        @include top-app-bar.fill-color-accessible(solar-theme.$app-bar-primary);
       }
 
       .mdc-top-app-bar__under-bar {
@@ -256,7 +256,7 @@
     &,
     ~ i.material-icons,
     ~ label {
-      @include mdc-mixins.prop(color, darken(bennett-theme.$on-error, 20%));
+      @include mdc-mixins.prop(color, darken(solar-theme.$on-error, 20%));
     }
   }
 }
@@ -265,8 +265,8 @@
   &.themed {
     width: 100%;
 
-    // @include select.dropdown-icon-color(bennett-theme.$select-colors);
-    // @include select.label-floating-color(bennett-theme.$select-colors);
+    // @include select.dropdown-icon-color(solar-theme.$select-colors);
+    // @include select.label-floating-color(solar-theme.$select-colors);
 
     &__anchor {
       width: 100%;
