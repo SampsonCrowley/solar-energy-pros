@@ -438,7 +438,7 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.active_storage_attachments (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     name character varying NOT NULL,
     record_type character varying NOT NULL,
     record_id uuid NOT NULL,
@@ -452,7 +452,7 @@ CREATE TABLE public.active_storage_attachments (
 --
 
 CREATE TABLE public.active_storage_blobs (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     key character varying NOT NULL,
     filename character varying NOT NULL,
     content_type character varying,
@@ -468,7 +468,7 @@ CREATE TABLE public.active_storage_blobs (
 --
 
 CREATE TABLE public.address (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     country_id uuid NOT NULL,
     postal_code public.citext,
     region public.citext,
@@ -499,7 +499,7 @@ CREATE TABLE public.ar_internal_metadata (
 --
 
 CREATE TABLE public.country (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     alpha_2 public.citext NOT NULL,
     alpha_3 public.citext NOT NULL,
     "numeric" text NOT NULL,
@@ -516,7 +516,7 @@ CREATE TABLE public.country (
 --
 
 CREATE TABLE public.person (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     title text,
     first_names text NOT NULL,
     middle_names text,
@@ -575,7 +575,7 @@ CREATE TABLE public.unsubscriber (
 --
 
 CREATE TABLE public.user_session (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
     user_id uuid NOT NULL,
     browser_id text NOT NULL,
     token_digest text NOT NULL,

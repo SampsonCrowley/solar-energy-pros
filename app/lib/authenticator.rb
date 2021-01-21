@@ -5,9 +5,10 @@ class Authenticator
   # == Constants ============================================================
 
   # == Attributes ===========================================================
+  attr_accessor :tld_length
   attr_accessor :controller
   attr_accessor :domain
-  private :controller, :controller=, :domain, :domain=
+  private :controller, :controller=, :domain, :domain=, :tld_length, :tld_length=
 
   # == Extensions ===========================================================
   delegate :new_session_url, :redirect_to, to: :controller, private: true
@@ -39,12 +40,16 @@ class Authenticator
   end
 
   # == Instance Methods =====================================================
-  def initialize(current_controller:, cookie_domain: nil)
+  def initialize(current_controller:, cookie_domain: nil, cookie_tld_length: nil)
     self.controller = current_controller
 
     self.domain =
-      cookie_domain ||
-      (Rails.env.production? ? ".solarenergypros.online" : :all)
+      cookie_domain.presence \
+      || (Rails.env.production? ? ".powdersoles.com" : :all)
+
+    self.tld_length =
+      cookie_tld_length.presence \
+      || (Rails.env.production? ? 3 : 2)
 
     set_current_information
 
@@ -52,7 +57,11 @@ class Authenticator
   end
 
   def browser_id
-    @browser_id ||= get_browser_id
+    Current.browser_id || get_browser_id
+  end
+
+  def browser_token
+    Current.browser_token || get_browser_token
   end
 
   def current_session
@@ -83,8 +92,7 @@ class Authenticator
   def logout(record = nil)
     record&.destroy
     Current.session = nil
-    cookies.delete :session_id, domain: domain, tld_length: 2
-    cookies.delete :session_token, domain: domain, tld_length: 2
+    cookies.delete :session_id, domain: domain, tld_length: tld_length
     @logged_out = true
     nil
   end
@@ -110,7 +118,12 @@ class Authenticator
 
     def get_browser_id
       set_browser_id cookies.encrypted[:browser_id].presence
-      cookies.encrypted[:browser_id]
+      Current.browser_id
+    end
+
+    def get_browser_token
+      set_browser_token cookies.encrypted[:browser_token].presence
+      Current.browser_token
     end
 
     def get_existing_session
@@ -131,7 +144,7 @@ class Authenticator
 
     def session_attributes
       {
-        token: "#{Current.user_agent}:#{Current.ip_address}:#{Current.browser_id}",
+        token: Current.browser_token,
         user_agent: Current.user_agent,
         ip_address: Current.ip_address,
         browser_id: Current.browser_id
@@ -144,8 +157,24 @@ class Authenticator
         expires: Time.now + 90.days,
         secure: Rails.env.production?,
         domain: domain,
-        tld_length: 2
+        tld_length: tld_length,
+        httponly: false
       }
+
+      Current.browser_id = cookies.encrypted[:browser_id]
+    end
+
+    def set_browser_token(existing_value = nil)
+      cookies.encrypted[:browser_token] = {
+        value: (existing_value.presence || User::Session.create_encoded_token),
+        expires: Time.now + 24.hours,
+        secure: Rails.env.production?,
+        domain: domain,
+        tld_length: tld_length,
+        httponly: false
+      }
+
+      Current.browser_token = User::Session.decode_token(cookies.encrypted[:browser_token])
     end
 
     def set_current_information
@@ -156,19 +185,22 @@ class Authenticator
     def set_request_information
       Current.request_id = request.uuid
       Current.browser_id = browser_id
+      Current.browser_token = browser_token
       Current.user_agent = request.user_agent
       Current.ip_address = remote_ip
     end
 
     def set_session_cookies
       if current_session
-        current_session.touch
+        set_browser_token nil
+        current_session.update(token: browser_token)
         cookies.encrypted[:session_id] = {
           value: current_session.id,
           expires: Time.now + 24.hours,
           secure: Rails.env.production?,
           domain: domain,
-          tld_length: 2
+          tld_length: tld_length,
+          httponly: false
         }
       else
         logout

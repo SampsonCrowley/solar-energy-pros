@@ -53,4 +53,6 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  routes.default_url_options[:host] = "www.lvh.me:3000"
 end

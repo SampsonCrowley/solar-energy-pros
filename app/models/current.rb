@@ -9,7 +9,7 @@ class Current < ActiveSupport::CurrentAttributes
 
   # == Attributes ===========================================================
   attribute :session
-  attribute :request_id, :browser_id, :user_agent, :ip_address
+  attribute :request_id, :browser_id, :browser_token, :user_agent, :ip_address
 
   # == Attachments ==========================================================
 

@@ -28,6 +28,21 @@ class User < Person
     # == Boolean Class Methods ================================================
 
     # == Class Methods ========================================================
+    def self.create_token
+      RbNaCl::Random.random_bytes(64)
+    end
+
+    def self.create_encoded_token
+      encode_token create_token
+    end
+
+    def self.encode_token(bytes)
+      RbNaCl::Util.bin2hex(bytes)
+    end
+
+    def self.decode_token(hex)
+      RbNaCl::Util.hex2bin(hex)
+    end
 
     # == Boolean Methods ======================================================
     def allowed?(token_password = nil)
@@ -40,9 +55,8 @@ class User < Person
     # == Private Methods ======================================================
     private
       def current_token
-        Current.ip_address.present? \
-          ? "#{Current.user_agent}:#{Current.ip_address}:#{Current.browser_id}" \
-          : RbNaCl::Random.random_bytes(64)
+        Current.browser_token.presence \
+        || self.class.create_token
       end
 
   end

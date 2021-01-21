@@ -19,6 +19,10 @@ class User < Person
 
   nacl_password :single_use, skip_validations: true
 
+  attribute :admin, :boolean
+
+  attr_readonly :admin
+
   # == Attachments ==========================================================
 
   # == Relationships ========================================================
@@ -29,6 +33,7 @@ class User < Person
   # == Scopes ===============================================================
 
   # == Callbacks ============================================================
+  after_initialize :set_admin
 
   # == Boolean Class Methods ================================================
 
@@ -53,6 +58,10 @@ class User < Person
   private
     def generate_password_reset_token
       RbNaCl::Random.random_bytes(64).unpack_binary
+    end
+
+    def set_admin
+      @attributes.write_cast_value("admin", CoerceBoolean.from(data["admin"]))
     end
 
 end
